@@ -8,8 +8,9 @@ function loaddata(data=25){
       const div = document.createElement("div");
       div.setAttribute("class", "myBtn");
       div.innerHTML=`${item} ${count}`;
-      div.addEventListener("click", function () {
-        onOpenModal(count-i);
+      div.addEventListener("click", function (e) {
+        console.log(e.target.innerText);
+        onOpenModal(e.target.innerText);
       });
       main.append(div);
       i++;
@@ -31,7 +32,7 @@ var modal = document.querySelector(".modal");
 function onOpenModal(count) {
     console.log(count);
     var text = document.querySelector(".text");
-    text.innerHTML = `Masai Student ${count}`;
+    text.innerHTML = `${count}`;
     modal.style.display = "block";
   }
 
